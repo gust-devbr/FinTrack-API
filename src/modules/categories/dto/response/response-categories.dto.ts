@@ -15,6 +15,12 @@ export class ResponseCategoriesData {
   name!: string;
 
   @ApiProperty({
+    description: 'Cor da categoria',
+    example: '#349BEB',
+  })
+  color!: string;
+
+  @ApiProperty({
     description: 'Data de criação da categoria',
     example: '2026-10-21T20:00:00.000Z',
     type: String,

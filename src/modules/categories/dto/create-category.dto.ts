@@ -9,4 +9,12 @@ export class CreateCategoryDto {
   @IsNotEmpty()
   @IsString()
   name!: string;
+
+  @ApiProperty({
+    description: 'Cor da categoria',
+    example: '#349BEB',
+  })
+  @IsNotEmpty()
+  @IsString()
+  color!: string;
 }

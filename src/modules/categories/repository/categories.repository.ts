@@ -18,6 +18,7 @@ export class CategoriesRepository implements ICategoriesRepository {
       select: {
         id: true,
         name: true,
+        color: true,
         createdAt: true,
         _count: {
           select: {
@@ -41,6 +42,7 @@ export class CategoriesRepository implements ICategoriesRepository {
       return {
         id: category.id,
         name: category.name,
+        color: category.color,
         createdAt: category.createdAt,
         transactionCount: category._count.transaction,
         totalAmount: total?._sum.amount ?? 0,
