@@ -6,12 +6,13 @@ import { ICategoriesRepository } from './interface-categories.repository';
 import { Category } from '../entities/category.entity';
 import { CreateCategoryDto } from '../dto/create-category.dto';
 import { UpdateCategoryDto } from '../dto/update-category.dto';
+import { ResponseCategoriesData } from '../dto/response/response-categories.dto';
 
 @Injectable()
 export class CategoriesRepository implements ICategoriesRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async getAllCategories(userId: string) {
+  async getAllCategories(userId: string): Promise<ResponseCategoriesData[]> {
     const categories = await this.prisma.category.findMany({
       where: { userId },
       select: {

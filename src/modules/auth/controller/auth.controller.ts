@@ -7,6 +7,7 @@ import { BaseResponseDto } from '@/common/dtos/base-response.dto';
 import {
   AccessTokenDto,
   RefreshTokenDto,
+  RefreshControllerResponse,
 } from '../dto/response/response-tokens.dto';
 import { RegisterDto } from '../dto/register.dto';
 import { SignInDto } from '../dto/sign-in.dto';
@@ -42,7 +43,7 @@ export class AuthController {
   @ApiResponse({
     status: 200,
     description: 'Refresh token',
-    type: AccessTokenDto,
+    type: RefreshControllerResponse,
   })
   @HttpCode(HttpStatus.OK)
   @Post('refresh')

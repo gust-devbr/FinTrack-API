@@ -1,3 +1,4 @@
+import { BaseResponseDto } from '@/common/dtos/base-response.dto';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString } from 'class-validator';
 
@@ -11,4 +12,9 @@ export class RefreshTokenDto {
   @IsNotEmpty()
   @IsString()
   refreshToken!: string;
+}
+
+export class RefreshControllerResponse extends BaseResponseDto<AccessTokenDto> {
+  @ApiProperty({ type: AccessTokenDto })
+  declare data: AccessTokenDto;
 }

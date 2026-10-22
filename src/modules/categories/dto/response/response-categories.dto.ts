@@ -1,6 +1,7 @@
+import { BaseResponseDto } from '@/common/dtos/base-response.dto';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class ResponseCategoriesDto {
+export class ResponseCategoriesData {
   @ApiProperty({
     description: 'ID da categoria',
     example: '68f123456789012345678901',
@@ -33,4 +34,14 @@ export class ResponseCategoriesDto {
     type: Number,
   })
   totalAmount!: number;
+}
+
+class ReturnCategories {
+  @ApiProperty({ type: [ResponseCategoriesData] })
+  categories!: [ResponseCategoriesData];
+}
+
+export class ResponseCategoriesDto extends BaseResponseDto<ReturnCategories> {
+  @ApiProperty({ type: ReturnCategories })
+  declare data: ReturnCategories;
 }
