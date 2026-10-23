@@ -24,8 +24,12 @@ export class TransactionsService {
   }
 
   async findAll(userId: string) {
-    const transactions = await this.transactionsRepository.findAll(userId);
-    return { transactions };
+    const [transactions, summary] = await Promise.all([
+      this.transactionsRepository.findAll(userId),
+      this.transactionsRepository.calculate(userId),
+    ]);
+
+    return { summary, transactions };
   }
 
   async update(id: string, updateTransactionDto: UpdateTransactionDto) {
