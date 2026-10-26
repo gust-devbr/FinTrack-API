@@ -17,4 +17,9 @@ export class CreateCategoryDto {
   @IsNotEmpty()
   @IsString()
   color!: string;
+
+  @ApiProperty({ description: 'Ícone da categoria' })
+  @IsNotEmpty()
+  @IsString()
+  icon!: string;
 }

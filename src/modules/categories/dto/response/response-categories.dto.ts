@@ -21,6 +21,12 @@ export class ResponseCategoriesData {
   color!: string;
 
   @ApiProperty({
+    description: 'Ícone da categoria',
+    example: 'restaurant-outline',
+  })
+  icon!: string;
+
+  @ApiProperty({
     description: 'Data de criação da categoria',
     example: '2026-10-21T20:00:00.000Z',
     type: String,
